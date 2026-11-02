@@ -396,17 +396,7 @@ export default async function BlogPostPage({
                 </div>
               )}
 
-              {/* Quote Block */}
-              {sec.quote && (
-                <blockquote className="my-8 p-6 sm:p-8 rounded-2xl border-l-4 border-[#ffaa00] bg-white/[0.03]">
-                  <p className="text-lg sm:text-xl italic font-light text-white leading-relaxed mb-3">
-                    “{sec.quote.text}”
-                  </p>
-                  <cite className="text-xs font-mono tracking-wider uppercase text-white/60 not-italic block">
-                    — {sec.quote.citation}
-                  </cite>
-                </blockquote>
-              )}
+
             </section>
           ))}
         </div>
