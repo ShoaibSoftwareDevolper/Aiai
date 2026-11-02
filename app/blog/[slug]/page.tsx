@@ -191,7 +191,7 @@ export default async function BlogPostPage({
             href={YOUTUBE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-xs tracking-[0.2em] uppercase font-bold px-4 py-2 rounded-full bg-[#ef3624] hover:bg-[#ff4538] text-white transition-all shadow-[0_4px_20px_rgba(239,54,36,0.4)]"
+            className="flex items-center gap-2 text-xs tracking-[0.2em] uppercase font-bold px-4 py-2 rounded-full bg-[#ef3624] hover:bg-[#ff4538] text-white transition-all"
           >
             <span>Subscribe</span>
             <ExternalLink size={12} />
@@ -203,10 +203,9 @@ export default async function BlogPostPage({
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-8 pt-12 sm:pt-20 pb-12">
         {/* Category & Read Time */}
         <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-6">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs tracking-[0.2em] uppercase font-bold text-[#ffd166]">
-            <Sparkles size={12} />
-            {post.category}
-          </span>
+          <div className="flex items-center gap-1.5 text-xs tracking-[0.2em] uppercase font-bold text-white/70">
+            <span>{post.category}</span>
+          </div>
           <div className="flex items-center gap-1.5 text-xs tracking-[0.15em] text-white/60 font-mono">
             <Calendar size={13} />
             <span>{post.publishedAt}</span>
@@ -413,7 +412,7 @@ export default async function BlogPostPage({
         </div>
 
         {/* Subscribe CTA Banner */}
-        <div className="mt-16 p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#ef3624]/20 via-[#ffaa00]/10 to-transparent border border-white/15 text-center relative overflow-hidden">
+        <div className="mt-16 p-8 sm:p-10 rounded-3xl bg-white/[0.04] border border-white/15 text-center relative overflow-hidden">
           <div className="relative z-10 max-w-xl mx-auto space-y-4">
             <span className="text-xs tracking-[0.25em] uppercase font-bold text-[#ffb703]">
               Never Miss A Creation
@@ -430,7 +429,7 @@ export default async function BlogPostPage({
                 href={YOUTUBE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-[#ef3624] hover:bg-[#ff4538] text-white font-bold tracking-wider uppercase text-xs transition-all shadow-[0_10px_30px_rgba(239,54,36,0.5)] cursor-pointer"
+                className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-[#ef3624] hover:bg-[#ff4538] text-white font-bold tracking-wider uppercase text-xs transition-all cursor-pointer"
               >
                 <span>Subscribe to @AIAI-5926</span>
                 <ArrowRight size={15} />
