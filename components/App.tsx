@@ -6,6 +6,7 @@ import { ArrowRight, ChevronUp, X } from 'lucide-react';
 import { useSmoothScroll, setScrollLocked, scrollToProgress, scrollToElement } from '@/hooks/useSmoothScroll';
 import { BRAND, DEFINITION, FAQS, LOGO_URL, NAV_LINKS, YOUTUBE_URL } from '@/lib/site';
 import BlogsSection from '@/components/BlogsSection';
+import Footer from '@/components/Footer';
 
 const DARK = '#1D3045';
 const EASE_OUT = 'cubic-bezier(0.16,1,0.3,1)';
@@ -94,10 +95,12 @@ function Stagger({
 function Navbar({
   isLight,
   currentProgress,
+  hide = false,
   onOpenMenu,
 }: {
   isLight: boolean;
   currentProgress: number;
+  hide?: boolean;
   onOpenMenu: () => void;
 }) {
   const [entered, setEntered] = useState(false);
@@ -116,7 +119,9 @@ function Navbar({
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 px-6 sm:px-10 md:px-14 py-6 sm:py-7 flex items-center justify-between transition-colors duration-500"
+      className={`fixed top-0 left-0 right-0 z-50 px-6 sm:px-10 md:px-14 py-6 sm:py-7 flex items-center justify-between transition-all duration-500 ${
+        hide ? 'opacity-0 -translate-y-12 pointer-events-none' : 'opacity-100 translate-y-0'
+      }`}
       style={{ color }}
     >
       <div className="flex items-center gap-6 lg:gap-12">
@@ -318,6 +323,20 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
 export default function App() {
   const { containerRef, progress: p } = useSmoothScroll();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
+
+  useEffect(() => {
+    const el = document.getElementById('footer-stack');
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        setFooterVisible(entry.isIntersecting);
+      },
+      { threshold: 0.05 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   const o1 = s1Opacity(p);
   const o2 = s2Opacity(p);
@@ -337,7 +356,12 @@ export default function App() {
 
   return (
     <main>
-      <Navbar isLight={isLight} currentProgress={p} onOpenMenu={() => setMenuOpen(true)} />
+      <Navbar
+        isLight={isLight}
+        currentProgress={p}
+        hide={footerVisible}
+        onOpenMenu={() => setMenuOpen(true)}
+      />
 
       {/* 450vh scroll container driving the smooth continuous reveal */}
       <div id="scroll-track" ref={containerRef} className="relative h-[450vh]">
@@ -586,6 +610,11 @@ export default function App() {
           AFTER 3RD SECTION: PARALLEL SCROLL BLOGS & DISPATCHES
           ======================================================== */}
       <BlogsSection />
+
+      {/* ========================================================
+          PARALLAX STACK OPENING FOOTER
+          ======================================================== */}
+      <Footer />
 
       {/* Screen-reader and search engine entity indexation block (clean for AEO and GEO) */}
       <section className="sr-only" aria-label="AIAI Videos Channel Knowledge">

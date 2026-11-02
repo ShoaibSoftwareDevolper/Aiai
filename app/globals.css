@@ -3,12 +3,28 @@
 
 /* NOTE: no `scroll-behavior: smooth` — Lenis handles smoothing and the two conflict. */
 
+/* Hide scrollbar across all browsers while preserving scroll functionality */
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+  width: 0;
+  height: 0;
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
-  font-family: 'Helvetica Neue ME', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Fredoka', 'DynaPuff', cursive, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   background: #fff;
+}
+
+h1, h2, h3, h4, h5, h6, .font-fluffy {
+  font-family: 'DynaPuff', 'Sour Gummy', 'Fredoka', cursive, sans-serif;
 }
 
 .section {

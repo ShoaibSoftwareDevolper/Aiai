@@ -154,8 +154,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/jpeg" href={FAVICON_URL} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://db.onlinewebfonts.com/c/95cecf452d3208890088a5b4c19c7ecf?family=Helvetica+Neue+ME"
+          href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Fredoka:wght@300..700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
         />
         <script

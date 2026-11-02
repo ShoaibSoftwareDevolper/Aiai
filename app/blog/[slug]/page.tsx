@@ -5,8 +5,6 @@ import Link from 'next/link';
 import {
   ArrowLeft,
   ArrowRight,
-  Calendar,
-  Clock,
   Sparkles,
   Share2,
   Bookmark,
@@ -180,12 +178,6 @@ export default async function BlogPostPage({
           </Link>
         </div>
 
-        <div className="hidden md:flex items-center gap-3 text-xs tracking-[0.2em] font-mono text-white/50">
-          <span>{post.category}</span>
-          <span>•</span>
-          <span className="text-[#ff9f1c]">Article 0{currentIndex + 1} of 0{BLOG_POSTS.length}</span>
-        </div>
-
         <div className="flex items-center gap-3">
           <a
             href={YOUTUBE_URL}
@@ -201,21 +193,6 @@ export default async function BlogPostPage({
 
       {/* Article Hero Container */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-8 pt-12 sm:pt-20 pb-12">
-        {/* Category & Read Time */}
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-6">
-          <div className="flex items-center gap-1.5 text-xs tracking-[0.2em] uppercase font-bold text-white/70">
-            <span>{post.category}</span>
-          </div>
-          <div className="flex items-center gap-1.5 text-xs tracking-[0.15em] text-white/60 font-mono">
-            <Calendar size={13} />
-            <span>{post.publishedAt}</span>
-          </div>
-          <div className="flex items-center gap-1.5 text-xs tracking-[0.15em] text-white/60 font-mono">
-            <Clock size={13} />
-            <span>{post.readTime}</span>
-          </div>
-        </div>
-
         {/* Main H1 Title */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-light uppercase leading-[1.12] tracking-tight text-white mb-6">
           {post.title}
@@ -273,32 +250,7 @@ export default async function BlogPostPage({
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-          <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 px-3 py-1.5 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-[11px] font-mono tracking-wider text-white/70">
-            AIAI Visual Archive // Official Creation
-          </div>
         </div>
-
-        {/* Table of Contents */}
-        {post.tableOfContents && post.tableOfContents.length > 0 && (
-          <aside className="mb-14 p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
-            <div className="text-xs tracking-[0.25em] uppercase font-bold text-[#ffb703] mb-4">
-              Table of Contents
-            </div>
-            <ol className="space-y-2.5">
-              {post.tableOfContents.map((item, idx) => (
-                <li key={item.id}>
-                  <a
-                    href={`#${item.id}`}
-                    className="text-sm text-white/75 hover:text-white hover:underline transition-colors flex items-center gap-3"
-                  >
-                    <span className="font-mono text-xs text-white/40">0{idx + 1}.</span>
-                    <span>{item.title}</span>
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </aside>
-        )}
 
         {/* Body Sections */}
         <div className="space-y-12 sm:space-y-16">
