@@ -411,32 +411,6 @@ export default async function BlogPostPage({
           ))}
         </div>
 
-        {/* Subscribe CTA Banner */}
-        <div className="mt-16 p-8 sm:p-10 rounded-3xl bg-white/[0.04] border border-white/15 text-center relative overflow-hidden">
-          <div className="relative z-10 max-w-xl mx-auto space-y-4">
-            <span className="text-xs tracking-[0.25em] uppercase font-bold text-[#ffb703]">
-              Never Miss A Creation
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-light uppercase text-white">
-              Watch Every Experiment on YouTube
-            </h3>
-            <p className="text-sm text-white/70 leading-relaxed font-light">
-              Join thousands of digital art lovers, filmmakers, and AI enthusiasts.
-              Subscribe to the official AIAI Videos channel.
-            </p>
-            <div className="pt-2">
-              <a
-                href={YOUTUBE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-[#ef3624] hover:bg-[#ff4538] text-white font-bold tracking-wider uppercase text-xs transition-all cursor-pointer"
-              >
-                <span>Subscribe to @AIAI-5926</span>
-                <ArrowRight size={15} />
-              </a>
-            </div>
-          </div>
-        </div>
 
         {/* ========================================================
             POST PAGINATION CONTROLS
